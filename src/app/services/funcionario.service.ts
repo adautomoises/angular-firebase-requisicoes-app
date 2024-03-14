@@ -1,0 +1,13 @@
+import { Injectable } from '@angular/core';
+import { Funcionario } from '../models/funcionario.model';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { ServiceFirebase } from '../core/firebase.service';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class FuncionarioService extends ServiceFirebase<Funcionario> {
+  constructor(firestore: AngularFirestore) {
+    super(Funcionario, firestore, 'funcionarios');
+  }
+}
