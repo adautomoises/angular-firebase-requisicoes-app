@@ -1,0 +1,86 @@
+<div class="card-header p-d-flex p-mb-4">
+  <h3 class="p-mr-4">Funcionários</h3>
+  <button
+    pButton
+    class="btn btn-lg btn-success btn-block text-uppercase p-button-rounded p-button-success"
+    type="button"
+    icon="pi pi-plus"
+    (click)="add()"
+  ></button>
+</div>
+<table class="table table-striped table-hover table-bordered col-centered">
+  <thead class="thead-dark">
+    <tr>
+      <th class="text-center">Nome</th>
+      <th class="text-center">E-mail</th>
+      <th class="text-center">Departamento</th>
+      <th class="text-center">Função</th>
+      <th class="text-center">Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let funcionario of funcionarios$ | async">
+      <td class="text-center">{{ funcionario.nome }}</td>
+      <td class="text-center">{{ funcionario.email }}</td>
+      <td class="text-center">{{ funcionario.departamento }}</td>
+      <td class="text-center">{{ funcionario.funcao }}</td>
+      <td class="text-center">
+        <button
+          pButton
+          class="btn btn-lg btn-success btn-block text-uppercase p-button-rounded p-button-success p-mr-2"
+          type="button"
+          icon="pi pi-pencil"
+          (click)="selecionaFuncionario(funcionario)"
+        ></button>
+        <button
+          pButton
+          class="btn btn-lg btn-success btn-block text-uppercase p-button-rounded p-button-danger"
+          type="button"
+          icon="pi pi-trash"
+          (click)="delete(funcionario)"
+        ></button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p-dialog
+  header="Dados do funcionário"
+  [style]="{ width: '80vw' }"
+  [contentStyle]="{ overflow: 'visible' }"
+  [(visible)]="displayDialogFuncionario"
+  [modal]="true"
+  [resizable]="false"
+>
+  <div class="ui-grid ui-grid-responsive ui-fluid" *ngIf="form.value">
+    <form [formGroup]="form" class="p-fluid p-formgrid p-grid">
+      <div class="p-field p-col-12 p-md-6">
+        <label for="nome">Nome</label>
+        <input type="text" pInputText formControlName="nome" />
+      </div>
+      <div class="p-field p-col-12 p-md-6">
+        <label for="email">E-mail</label>
+        <input type="text" pInputText formControlName="email" />
+      </div>
+      <div class="p-field p-col-12 p-md-6">
+        <label for="departamento">Departamento</label>
+        <input type="text" pInputText formControlName="departamento" />
+      </div>
+      <div class="p-field p-col-12 p-md-6">
+        <label for="funcao">Função</label>
+        <input type="text" pInputText formControlName="funcao" />
+      </div>
+    </form>
+  </div>
+  <ng-template pTemplate="footer">
+    <button
+      pButton
+      class="btn btn-lg btn-success btn-block text-uppercase p-button-rounded p-button-primary"
+      type="button"
+      icon="pi pi-plus"
+      label="Salvar"
+      (click)="save()"
+      styleClass="p-button-text"
+    ></button>
+  </ng-template>
+</p-dialog>

@@ -13,6 +13,7 @@ import { MenuComponent } from './components/admin/menu/menu.component';
 import { ComumModule } from './modules/comum/comum.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, MenuComponent],
@@ -26,6 +27,7 @@ import { CommonModule } from '@angular/common';
     ComumModule,
     BrowserAnimationsModule,
     CommonModule,
+    NgSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
