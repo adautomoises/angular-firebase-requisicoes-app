@@ -8,12 +8,9 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from 'src/environments/environment';
 import { LoginComponent } from './components/public/login/login.component';
-import { InputTextModule } from 'primeng/inputtext';
-import { PasswordModule } from 'primeng/password';
-import { ButtonModule } from 'primeng/button';
-import { DividerModule } from 'primeng/divider';
 import { FormsModule } from '@angular/forms';
 import { MenuComponent } from './components/admin/menu/menu.component';
+import { ComumModule } from './modules/comum/comum.module';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, MenuComponent],
@@ -23,11 +20,8 @@ import { MenuComponent } from './components/admin/menu/menu.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
-    InputTextModule,
-    PasswordModule,
-    ButtonModule,
-    DividerModule,
     FormsModule,
+    ComumModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
