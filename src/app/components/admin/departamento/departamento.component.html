@@ -1,38 +1,36 @@
-<div class="card-header">
-  <h3>
-    Departamentos
-    <button
-      pButton
-      class="btn btn-lg btnlsuccess btn-block text-uppercase p-button-rounded p-button-success"
-      type="button"
-      icon="pi pi-plus"
-      (click)="add()"
-    ></button>
-  </h3>
+<div class="card-header p-d-flex p-mb-4">
+  <h3 class="p-mr-4">Departamentos</h3>
+  <button
+    pButton
+    class="btn btn-lg btn-success btn-block text-uppercase p-button-rounded p-button-success"
+    type="button"
+    icon="pi pi-plus"
+    (click)="add()"
+  ></button>
 </div>
-<table>
-  <thead>
+<table class="table table-striped table-hover table-bordered col-centered">
+  <thead class="thead-dark">
     <tr>
-      <th>Nome</th>
-      <th>Telefone</th>
-      <th>Ações</th>
+      <th class="text-center">Nome</th>
+      <th class="text-center">Telefone</th>
+      <th class="text-center">Ações</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let departamento of departamentos$ | async">
-      <td>{{ departamento.nome }}</td>
-      <td>{{ departamento.telefone }}</td>
-      <td>
+      <td class="text-center">{{ departamento.nome }}</td>
+      <td class="text-center">{{ departamento.telefone }}</td>
+      <td class="text-center">
         <button
           pButton
-          class="btn btn-lg btnlsuccess btn-block text-uppercase p-button-rounded p-button-success"
+          class="btn btn-lg btn-success btn-block text-uppercase p-button-rounded p-button-success p-mr-2"
           type="button"
-          icon="pi pi-edit"
+          icon="pi pi-pencil"
           (click)="selecionaDepartamento(departamento)"
         ></button>
         <button
           pButton
-          class="btn btn-lg btnlsuccess btn-block text-uppercase p-button-rounded p-button-success"
+          class="btn btn-lg btn-success btn-block text-uppercase p-button-rounded p-button-danger"
           type="button"
           icon="pi pi-trash"
           (click)="delete(departamento)"
@@ -48,6 +46,7 @@
   [contentStyle]="{ overflow: 'visible' }"
   [(visible)]="displayDialogDepartamento"
   [modal]="true"
+  [resizable]="false"
 >
   <div class="ui-grid ui-grid-responsive ui-fluid" *ngIf="form.value">
     <form [formGroup]="form" class="p-fluid p-formgrid p-grid">
@@ -56,7 +55,7 @@
         <input type="text" pInputText formControlName="nome" />
       </div>
       <div class="p-field p-col-12 p-md-6">
-        <label for="nome">Nome</label>
+        <label for="telefone">Telefone</label>
         <p-inputMask
           formControlName="telefone"
           mask="(99) 9 9999-9999"
@@ -64,50 +63,15 @@
       </div>
     </form>
   </div>
-</p-dialog>
-
-<p-dialog
-  header="Dados do departamento"
-  [style]="{ width: '80vw' }"
-  [contentStyle]="{ overflow: 'visible' }"
-  [visible]="false"
-  [modal]="true"
->
-  Content
-</p-dialog>
-
-<p-dialog
-  header="Dados do departamento"
-  [style]="{ width: '80vw' }"
-  [contentStyle]="{ overflow: 'visible' }"
-  [(visible)]="displayDialogDepartamento"
-  [modal]="true"
->
-  <div class="ui-grid ui-grid-responsive ui-fluid" *ngIf="form.value">
-    <form [formGroup]="form" class="p-fluid p-formgrid p-grid">
-      <div class="p-field p-col-12 p-md-6">
-        <label for="nome">Nome*:</label>
-        <input type="text" pInputText formControlName="nome" />
-      </div>
-
-      <div class="p-field p-col-12 p-md-6">
-        <label for="telefone">Telefone:</label>
-        <p-inputMask
-          formControlName="telefone"
-          mask="(99)9999-9999"
-        ></p-inputMask>
-      </div>
-    </form>
-  </div>
-
-  <div class="p-d-flex p-jc-end">
+  <ng-template pTemplate="footer">
     <button
-      [disabled]="!form.valid"
+      pButton
+      class="btn btn-lg btn-success btn-block text-uppercase p-button-rounded p-button-primary"
       type="button"
-      class="btn btn-primary"
+      icon="pi pi-plus"
+      label="Salvar"
       (click)="save()"
-    >
-      <i class="fas fa-check-circle"></i> {{ edit ? "Atualizar" : "Salvar" }}
-    </button>
-  </div>
+      styleClass="p-button-text"
+    ></button>
+  </ng-template>
 </p-dialog>
