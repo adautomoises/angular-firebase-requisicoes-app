@@ -11,6 +11,8 @@ import { LoginComponent } from './components/public/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { MenuComponent } from './components/admin/menu/menu.component';
 import { ComumModule } from './modules/comum/comum.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, MenuComponent],
@@ -22,6 +24,8 @@ import { ComumModule } from './modules/comum/comum.module';
     AngularFireAuthModule,
     FormsModule,
     ComumModule,
+    BrowserAnimationsModule,
+    CommonModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

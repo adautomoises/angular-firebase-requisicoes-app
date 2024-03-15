@@ -21,6 +21,14 @@ const routes: Routes = [
       ),
     canActivate: [AuthguardService],
   },
+  {
+    path: 'admin/departamento',
+    loadChildren: () =>
+      import('./components/admin/departamento/departamento.module').then(
+        (m) => m.DepartamentoModule
+      ),
+    canActivate: [AuthguardService],
+  },
 ];
 
 @NgModule({
