@@ -17,7 +17,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { FilterDepartamentoPipe } from './pipes/filter-departamento.pipe';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, MenuComponent, FilterDepartamentoPipe],
+  declarations: [AppComponent, LoginComponent, MenuComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -30,7 +30,7 @@ import { FilterDepartamentoPipe } from './pipes/filter-departamento.pipe';
     CommonModule,
     NgSelectModule,
   ],
-  providers: [],
+
   bootstrap: [AppComponent],
 })
 export class AppModule {}

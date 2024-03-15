@@ -7,7 +7,7 @@ export class FilterDepartamentoPipe implements PipeTransform {
   transform(value: any, filtro: any): any {
     if (filtro == 'TODOS') return value;
     if (value) {
-      return value.filter((elem: any) => elem.departamento.nome === filtro);
+      return value.filter((elem: any) => elem.departamento === filtro);
     }
 
     return null;

@@ -32,7 +32,13 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let funcionario of funcionarios$ | async">
+    <tr
+      *ngFor="
+        let funcionario of funcionarios$
+          | async
+          | filterDepartamento : departamentoFiltro
+      "
+    >
       <td class="text-center">{{ funcionario.nome }}</td>
       <td class="text-center">{{ funcionario.email }}</td>
       <td class="text-center">{{ funcionario.departamento }}</td>

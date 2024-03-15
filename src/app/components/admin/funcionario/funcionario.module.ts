@@ -5,9 +5,10 @@ import { FuncionarioRoutingModule } from './funcionario-routing.module';
 import { FuncionarioComponent } from './funcionario.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { ComumModule } from 'src/app/modules/comum/comum.module';
+import { FilterDepartamentoPipe } from 'src/app/pipes/filter-departamento.pipe';
 
 @NgModule({
-  declarations: [FuncionarioComponent],
+  declarations: [FuncionarioComponent, FilterDepartamentoPipe],
   imports: [
     CommonModule,
     FuncionarioRoutingModule,
