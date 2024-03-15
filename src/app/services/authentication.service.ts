@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Observable } from 'rxjs';
 import firebase from 'firebase/app';
+import { filter } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -11,6 +12,10 @@ export class AuthenticationService {
 
   constructor(private angularFireAuth: AngularFireAuth) {
     this.user = this.angularFireAuth.authState;
+  }
+
+  authUser(): Observable<firebase.User> {
+    return this.user as Observable<firebase.User>;
   }
 
   login(
