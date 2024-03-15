@@ -14,9 +14,10 @@ import { ComumModule } from './modules/comum/comum.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { FilterDepartamentoPipe } from './pipes/filter-departamento.pipe';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, MenuComponent],
+  declarations: [AppComponent, LoginComponent, MenuComponent, FilterDepartamentoPipe],
   imports: [
     BrowserModule,
     AppRoutingModule,
