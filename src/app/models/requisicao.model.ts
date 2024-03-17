@@ -4,7 +4,7 @@ import { Funcionario } from './funcionario.model';
 import { Movimentacao } from './movimentacao.model';
 
 export class Requisicao extends Model {
-  olicitante: Funcionario = {} as Funcionario;
+  solicitante: Funcionario = {} as Funcionario;
   dataAbertura: any;
   ultimaAtualizacao: any;
   descricao: string = '';
