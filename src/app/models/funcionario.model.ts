@@ -5,6 +5,7 @@ export class Funcionario extends Model {
   nome: string = '';
   funcao: string = '';
   email: string = '';
+  foto: string = '';
   ultimoAcesso: Date = new Date();
   departamento: Departamento = {} as Departamento;
 }

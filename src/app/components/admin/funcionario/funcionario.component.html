@@ -24,6 +24,7 @@
 <table class="table table-striped table-hover table-bordered col-centered">
   <thead class="thead-dark">
     <tr>
+      <th class="text-center">Foto</th>
       <th class="text-center">Nome</th>
       <th class="text-center">E-mail</th>
       <th class="text-center">Departamento</th>
@@ -39,6 +40,13 @@
           | filterDepartamento : departamentoFiltro
       "
     >
+      <td class="text-center">
+        <img
+          [src]="funcionario.foto || '/assets/no-image.jpg'"
+          style="width: 100px"
+          class="img-fluid"
+        />
+      </td>
       <td class="text-center">{{ funcionario.nome }}</td>
       <td class="text-center">{{ funcionario.email }}</td>
       <td class="text-center">{{ funcionario.departamento }}</td>
@@ -95,6 +103,21 @@
       <div class="p-field p-col-12 p-md-6">
         <label for="funcao">Função</label>
         <input type="text" pInputText formControlName="funcao" />
+      </div>
+      <div class="p-field p-col-12 p-md-6">
+        <label for="foto">Foto:</label>
+        <input type="text" pInputText formControlName="foto" hidden />
+        <input
+          type="file"
+          #inputFile
+          class="form-control"
+          (change)="upload($event)"
+        />
+        <progress
+          style="width: 100%"
+          max="100"
+          [value]="uploadPercent | async"
+        ></progress>
       </div>
     </form>
   </div>
